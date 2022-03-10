@@ -1,0 +1,1 @@
+funkcja która oblicza średnia arytm (z i bez pętli)
