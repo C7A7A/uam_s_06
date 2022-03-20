@@ -18,14 +18,15 @@
 
 
 # 9.
-moment = function(n, r, x) {
+moment = function(r, values) {
   sum = 0;
-  for (num in n) {
-    sum = sum + x^r;
+  for (val in values) {
+    sum = sum + val^r;
   }
   
-  (1/n) * sum
+  sum / length(values)
 }
+
 
 # zmienna ciągła
 wait_time = c(4.03, 11.04,  5.73, 12.36, 13.17,  0.64,  7.39, 12.49,  7.72,  6.39, 13.40,  6.35,  9.49,  8.02,  
