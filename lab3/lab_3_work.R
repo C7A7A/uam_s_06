@@ -43,41 +43,24 @@ plot(ppois(errors, lambda=2))
 plot(ppois(wait_time, lambda=2))
 
 # 10.
-pois0_5 = ppois(errors, lambda=0.5)
-pois1 = ppois(errors, lambda=1)
-pois2 = ppois(errors, lambda=2)
+dexp0_5 = dexp(errors, rate=0.5)
+dexp1 = dexp(errors, rate=1)
+dexp2 = dexp(errors, rate=2)
 
-hist(
-  pois0_5,
-  col="orange",
-  prob=TRUE,
-  main="Poisson distr of errors with density"
-)
-lines(
-  density(pois0_5),
-  lwd=2
-)
-
-hist(
-  pois1,
-  col="orange",
-  prob=TRUE,
-  main="Poisson distr of errors with density"
-)
-lines(
-  density(pois1),
-  lwd=2
-)
-
-hist(
-  pois2,
-  col="orange",
-  prob=TRUE,
-  main="Poisson distr of errors with density"
-)
-lines(
-  density(pois2),
-  lwd=2
-)
+plot(dexp0_5)
+plot(dexp1)
+plot(dexp2)
 
 # 11.
+a = min(wait_time)
+b = max(wait_time)
+
+uniformDistr = punif(wait_time, a, b)
+
+hist(wait_time)
+lines(
+  uniformDistr,
+  lwd=4,
+  col='ORANGE'
+)
+
