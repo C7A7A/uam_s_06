@@ -138,11 +138,49 @@ post_hoc_fisher(X_2, X_3, n_all(X), length(X), MSE(X), 0.01)
 
 
 
+description_table = matrix(c(
+  'Pomiędzy grupami', 'SSA', 'k - 1', 'MSA', 'F', 
+  'Wewnątrz grup', 'SSE', 'n - k', 'MSE', 'F',
+  'Całość', 'SST', 'n - 1', 'MST', 'F'
+  ), ncol=5, byrow=TRUE)
+colnames(description_table) = c('Zmienność','Suma kwadratów','Liczba stopni swobody', 'Średnie kwadraty', 'Statystyka testowa')
+rownames(description_table) = c(1:3)
+description_table = as.table(description_table)
+head(description_table)
 
 
+SST = function(X) {
+  k = length(X)
+  s = 0
+  
+  for (i in 1:k) {
+    x_i = X[[i]]
+    n_i = length(x_i)
+    
+    for (j in 1:n_i) {
+      s = s + (x_i[j] - mean_all(X))^2 
+    }
+  }
+  
+  s
+}
+SST(X)
 
+MST = function(X) {
+  n = n_all(X)
+  SST(X) / (n - 1)
+}
+MST(X)
 
-
+data_table = matrix(c(
+  'Pomiędzy grupami', SSA(X), length(X) - 1, MSA(X), F, 
+  'Wewnątrz grup', SSE(X), n_all(X) - length(X), MSE(X), F,
+  'Całość', SST(X), n_all(X) - 1, MST(X), F
+), ncol=5, byrow=TRUE)
+colnames(data_table) = c('Zmienność','Suma kwadratów','Liczba stopni swobody', 'Średnie kwadraty', 'Statystyka testowa')
+rownames(data_table) = c(1:3)
+data_table = as.table(data_table)
+head(data_table)
 
 
 

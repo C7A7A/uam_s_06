@@ -10,12 +10,15 @@
 # H1: u1 != u2
 # H1: u1 > u2
 # H1: u1 < u2
-# 8.
+# 8. 
+# w modelu z jednorodnymi wariancjami: omega1^2 = omega2^2
+# w modelu z niejednorodnymi wariancjami: onmega1^2 != omega2^2
 
 # 9.
 # Hipoteza: mean(a) = mean(b)
-a = rnorm(100)
-b = rnorm(100)
+size = 100
+a = rnorm(size)
+b = rnorm(size)
 
 normalize = function(x) {
   min.x = min(x)
@@ -32,6 +35,14 @@ b = normalize(b)
 b
 
 alfa = 0.01
+std = 1
+n = size * size / (size + size)
 
 mean_a = mean(a)
 mean_b = mean(b)
+
+T = (mean_a - mean_b) / std * sqrt(n)
+T
+
+K = qt(1 - alfa, size + size - 2)
+K
