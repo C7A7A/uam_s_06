@@ -24,7 +24,7 @@
 #    uczącą oraz próbę testową, aby błąd ponownego podstawienia nie pojawiał się.
 
 # 10 Overfitting występuje, kiedy dostosowujemy model dokładnie do danych treningowych. W takiej sytuacji model nie będzie w stanie
-#    prawidłowo przewidzieć etykiet dla danych testowych. Przeuczenie dostosowuje się dokładnie do danych treningowych, kiedy
+#    prawidłowo przewidzieć etykiet dla danych testowych. Przeuczenie dostosowuje się dokładnie do danych treningowych, kiedy model
 #    uczony jest zbyt długo na danym datasecie lub kiedy model jest zbyt złożony.
 
 ###
