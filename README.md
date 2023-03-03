@@ -1,6 +1,6 @@
 # UAM_S
 
-Statystyka
+semestr 6 UAM - Statystyka
 
 ## Getting started
 
